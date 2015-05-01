@@ -1,2 +1,5 @@
 *.docx
-
+*/priv
+*.pdf
+assignments/hw1/dds_datasets/*
+assignments/titanic/priv
