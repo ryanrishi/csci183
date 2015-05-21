@@ -3,3 +3,13 @@
 *.pdf
 assignments/hw1/dds_datasets/*
 assignments/titanic/priv
+./assignments/libertarian/GSS7214_R2.sav
+
+assignments/libertarian/*.sav
+assignments/libertarian/*.dta
+assignments/libertarian/Release*.pdf
+assignments/click-through-rates/dds_datasets/
+
+# kaggle
+kaggle/images/images_training_rev1/**
+#kaggle/
