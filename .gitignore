@@ -14,5 +14,7 @@ assignments/libertarian/Release*.pdf
 assignments/click-through-rates/dds_datasets/
 
 # kaggle
-kaggle/images/images_training_rev1/**
-#kaggle/
+kaggle/galaxy/images_training_rev1/**
+
+
+
