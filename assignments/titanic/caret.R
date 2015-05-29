@@ -1,12 +1,12 @@
+library(rpart)
+library(caret)
+
+
 # impute N/A with mean
+train$Age <- mean(train$Age, na.rm = TRUE)
 
-age_mean <- mean(train$Age, na.rm = TRUE)
+library(rpart)
 
-for (i in 1:nrow(train)) {
-  if (is.na(train$Age[i])) {
-    train$Age[i] <- age_mean
-  }  
-}
 
 # rpart decision tree
-fit <- rpart(survived ~ Age, data = train)
+fit <- rpart(Survived ~ Age + Sex + Pclass + Fare + Cabin + Embarked, method="class", data = train)
