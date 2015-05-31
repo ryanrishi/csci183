@@ -47,19 +47,22 @@ subset <- train[3600:4000,]
 subset <- test
 ### END TESTING
 
-subset$expected <- 0
+subset$expected <- NULL 
+submission_labels <- vector()
 
 for (i in 1:nrow(subset)) {
   print (i/nrow(subset)) # progress
-  row <- subset[i,-1] # for training, use subset[i, -1]
+  row <- subset[i,] # for training, use subset[i, -1]
   row$expected <- NULL
   #img <- rowToMatrix(row)
   #image(img)
   #print(subset[i, 'label'])
   # do I want to plot these?
-  subset[i, 'expected'] <- digitClosestTo(row)
-  print(subset[i, 'expected'])
-  print('\n')
+  submission_labels[i] <- digitClosestTo(row)
+  print (submission_labels[i])
+  #subset[i, 'expected'] <- digitClosestTo(row)
+  #print(subset[i, 'expected'])
+  #print('\n')
 }
 
 # how did we do?
@@ -71,25 +74,23 @@ digitClosestTo <- function(img) {
   #weakest[1] <- sum(abs(meanDigits[1,] - img))
   # there must be an R function to compute RMS?
   rms <- vector()
-  rms[1] <- sum(abs(meanDigits[1,] - img)^2)
-  #dig <- 0
+  rms[1] <- sum((meanDigits[1,-1] - img)^2)  # [1,] for train, [1, -1] for test
   
   for (i in 2:10) {
     # note that meanDigits[4] actually refers to the 3 row, etc.
     #weakest[i] <- sum(abs(meanDigits[i,] - img))
-    rms[i] <- sum(abs(meanDigits[i,] - img)^2)
+    rms[i] <- sum(abs(meanDigits[i,-1] - img)^2) # [i,] for train; [i, -1] for test
   }
   #print (weakest)
   #print (rms)
-  return(which.min(rms) -1)
+  return(which.min(rms) - 1)
 }
 
 # things NOT to try
-# random forest
-
-# average images
-averageImages <- function(dataset) {
-  
-}
+# random forest b/c it 
 
 # submission is [8 2 0 5 1 2 7 ... 2  6 2 0] transpose (28000 digits)
+submission <- data.frame(ImageID = 1:28000, Label = submission_labels)
+submission$ImageID <- 0
+
+write.csv(submission, "submission.csv", row.names = F )
