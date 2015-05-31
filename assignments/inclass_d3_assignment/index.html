@@ -94,7 +94,7 @@
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
         
-        d3.tsv("unemployment.tsv", type, function(error, cities) {
+        d3.tsv("bike_theft_loc_occurrences.tsv", type, function(error, cities) {
                x.domain(d3.extent(months));
                y.domain([0, d3.max(cities, function(c) { return d3.max(c.values, function(d) { return d.value; }); })]).nice();
                
@@ -115,7 +115,7 @@
                .attr("x", 4)
                .attr("dy", ".32em")
                .style("font-weight", "bold")
-               .text("Unemployment Rate");
+               .text("Bikes Stolen");
                
                svg.append("g")
                .attr("class", "cities")
