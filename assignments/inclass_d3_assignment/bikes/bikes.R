@@ -55,4 +55,16 @@ allYearMon <- unique(bike_theft$yearmon)
 df <- as.data.frame.matrix(table(bike_theft$loc, bike_theft$yearmon))
 library('plyr')
 rename(df, c("row.names" = "name"))
+
 write.table(df, file="bike_theft_loc_occurrences.tsv", sep='\t')
+
+
+###   PART 2  ###
+install.packages('choroplethr')
+library(choroplethr)
+library(acs)
+api.key.install('4f32526cc94e8dd53cf2f751eff6967a1069878a')
+acs_data <- get_acs_data("B08101", "county",column_idx = 41,)
+bikes2 <- data.frame(id = acs_data$df$region, rate=acs_data$df$value / mean(acs_data$df$value))
+write.table(bikes2, file="bike2.tsv", sep='\t', row.names = F)
+
