@@ -1,3 +1,4 @@
+setwd('~/git/csci183/assignments/titanic/')
 install.packages('rpart')
 install.packages('caret')
 install.packages('glm')
@@ -26,8 +27,9 @@ plotcp(fit)
 
 # fit model
 fitControl <- trainControl(method = "repeatedcv", number = 10, repeats=1, verbose=TRUE)
-gbmGrid <- expand.grid(interaction.depth = 1:4, n.trees = (1:50)*20, shrinkage = c(.1, .05, .01, .005, .001), n.minobsinnode = 1)
-set.seed(825)
+gbmGrid <- expand.grid(interaction.depth = 1:4, n.trees = (1:50)*200, shrinkage = c(.1, .05, .01, .005, .001), n.minobsinnode = 1)
+# what is n.minobsinode in expand.grid()?
+set.seed(1000)
 gbmFit <- train(Survived ~ Age + Sex + Pclass + Fare + Embarked, 
                 data=train, method = "gbm", trControl = fitControl, verbose = F, tuneGrid = gbmGrid)
 
