@@ -1,8 +1,13 @@
+setwd('~/git/csci183/assignments/bikes/')
+bike_theft <- read.csv('bike_theft_rev.csv', header = TRUE)
+
+library('stringr')
+
 bike_theft$loc <- "OTHER"
 bike_theft$loc[str_detect(bike_theft$LOCATION, "Swig")] <- "Swig"
 bike_theft$loc[str_detect(bike_theft$LOCATION, "Dunne")] <- "Dunne"
 bike_theft$loc[str_detect(bike_theft$LOCATION, "McLaughlin")] <- "McLaughlin"
-bike_theft$loc[str_detect(bike_theft$LOCATION, "Walsh")] <- "Waslh"
+bike_theft$loc[str_detect(bike_theft$LOCATION, "Walsh")] <- "Walsh"
 bike_theft$loc[str_detect(bike_theft$LOCATION, "Casa")] <- "Casa"
 bike_theft$loc[str_detect(bike_theft$LOCATION, "Sobrato")] <- "Sobrato"
 bike_theft$loc[str_detect(bike_theft$LOCATION, "Campisi")] <- "Campisi"
