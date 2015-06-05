@@ -1,0 +1,28 @@
+Worst day of week:
+
+ 2  3  4  6  5  7  1 
+42 34 33 31 30 23 17 
+
+It looks like Monday (2) is the worst day of the week.
+
+
+= = = = = = =
+Worst month:
+
+ 2  3 10  5  1 11  4 12  8  6  9  7 
+31 28 28 27 21 17 14 14 10  9  7  4 
+
+February is the worst month. I guess people are gifting stolen bikes for Valentine's Day!
+
+
+= = = = = = = =
+Worst Location:
+
+ OTHER           Benson             Swig           Bannan          Sobrato           Villas Learning Commons       Sanfilippo 
+              33               26               23               19               15               14                9                9 
+         Campisi            Walsh         O'Connor             Casa           Graham           Nobili             Daly            Kenna 
+               7                7                6                5                5                5                4                4 
+       Locatelli           Malley       Bellarmine       McLaughlin          Orradre            Dunne 
+               4                4                3                3                3                2 
+
+Benson is the most notorious for Benson, and Swig is the worst dorm.
