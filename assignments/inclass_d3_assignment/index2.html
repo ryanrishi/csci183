@@ -2,9 +2,9 @@
 <meta charset="utf-8">
     <style>
         
-        .counties {
-            fill: none;
-        }
+    .counties {
+        fill: none;
+    }
     
     .states {
         fill: none;
@@ -51,7 +51,7 @@
             
             queue()
             .defer(d3.json, "us.json")
-            .defer(d3.tsv, "unemployment2.tsv", function(d) { rateById.set(d.id, +d.rate); })
+            .defer(d3.tsv, "bike2.tsv", function(d) { rateById.set(d.id, +d.rate); })
             .await(ready);
             
             function ready(error, us) {
@@ -71,4 +71,4 @@
         
         d3.select(self.frameElement).style("height", height + "px");
         
-            </script>
+        </script>
