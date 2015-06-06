@@ -66,6 +66,6 @@ library(acs)
 api.key.install('4f32526cc94e8dd53cf2f751eff6967a1069878a')
 acs_data <- get_acs_data("B08101", "county",column_idx = 41,)
 acs_employment <- get_acs_data('B08101', 'county', column_idx = 1)
-bikes2 <- data.frame(id = acs_data$df$region, rate= acs_data$df$value / (mean(acs_data$df$value) + sd(acs_data$df$value))) # this seems to work well, but idk why mean+sd
+bikes2 <- data.frame(id = acs_data$df$region, rate= acs_data$df$value / max(acs_data$df$value))
 write.table(bikes2, file="bike2.tsv", sep='\t', row.names = F)
 
